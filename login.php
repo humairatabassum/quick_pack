@@ -33,6 +33,11 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
             if ($row['email'] === $u_email && $row['password'] === $pass) {
                 $_SESSION['email'] = $u_email;
                 $_SESSION['role'] = $row['role'];
+                $_SESSION['first_name'] = $row['first_name'];
+                $_SESSION['last_name'] = $row['last_name'];
+
+                
+
 
                 header("Location:home.php");
             }
@@ -66,10 +71,11 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
         }
 
         body {
-            background-image: url('image/img1.jpg');
+            background-image: url("image/background_img.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            background: #fbe2e5;
+            background-position: center;
+            background-attachment: scroll;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -78,10 +84,14 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
 
 
         form {
+            backdrop-filter: blur(30px);
             width: 500px;
-            border: 2px solid white;
-            box-shadow: 2px 2px 10px 5px gray;
-            padding: 30px;
+            border: 2px solid #cec4ac;
+            box-shadow: 2px 2px 8px 2px gray;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             border-radius: 15px;
 
         }
@@ -116,14 +126,16 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
             border: none;
         }
 
-        .container-form {
-            align-items: center;
-            justify-content: center;
-
-        }
+        
 
         button:hover {
             opacity: 0.7;
+        }
+
+        h2{
+            font-size: 35px;
+           font-weight: bolder;
+            text-shadow: 4px 2px 4px #f9d3a9;
         }
 
         h3 {
@@ -136,13 +148,22 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
             margin-right: 10px;
 
         }
+        .container-form {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
 
+        }
         .btnRegister {
+            
             position: relative;
-            margin-left: 10px auto;
+            margin-left: 10px;
             padding-left: 10px;
             color: orangered;
-            font-weight: 700;
+            font-weight: 800;
+            text-decoration: none;
 
         }
     </style>
@@ -153,13 +174,9 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
 <body>
 
     <div class="row container-login">
-        <div class="col-md-3 container-form">
-
-            <h2>Welcome to Online Shopping</h2>
-
-        </div>
-
+    
         <div class="col-md-6 register-form">
+            <h2>Welcome To QuickPack</h2>
 
 
             <form method="POST" action="login.php">
@@ -176,10 +193,10 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col-1">
-                                        <label>Username</label>
+                                        <label style="color: black;">Username</label>
                                     </div>
                                     <div class="col-1">
-                                        <input type="email" class="form-control" id="email" name="u_email" />
+                                        <input type="email" class="form-control" id="email" name="u_email" required/>
                                     </div>
                                 </div>
                             </div>
@@ -189,10 +206,10 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col-1">
-                                        <label>Password</label>
+                                        <label style="color: black;">Password</label>
                                     </div>
                                     <div class="col-1">
-                                        <input type="password" class="form-control" id="password" name="pass" />
+                                        <input type="password" class="form-control" id="password" name="pass"  required/>
                                     </div>
                                 </div>
                             </div>
@@ -203,8 +220,9 @@ if (isset($_POST['u_email']) && isset($_POST['pass'])) {
         </div>
 
         <div class="col-md-6 container-form">
-            <h4> Don't have an account?</h4>
-            <input type="button" name="register" class="btnRegister" value="Register" onclick="location.href='signup.html'" />
+            <h4 style="color: black;"> Don't have an account?</h4>
+            <a href="signup.html" class="btnRegister" >Register</a>
+            <!-- <input type="button" name="register" class="btnRegister" value="Register" onclick="location.href='signup.html'" /> -->
 
         </div>
     </div>

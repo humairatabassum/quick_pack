@@ -4,7 +4,7 @@ session_start();
 include 'navbar.php';
 
 
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['email']) && $_SESSION['role'] === 'admin') {
 include "data_base.php";
 
 
@@ -40,6 +40,8 @@ if (isset($_GET['id'])) {
     <title>Admin</title>
 
     <style>
+
+        
         .header {
             text-align: center;
             font-size: 22px;
@@ -61,6 +63,22 @@ if (isset($_GET['id'])) {
         .text-field{
             font-weight: 600;
         }
+        .btnOrder {
+            background-color: #ff822b;
+            border: 2px solid #ff822b;
+            color: black;
+            padding: 6px 10px;
+            text-align: center;
+            text-decoration: wavy;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 0.5em;
+            box-shadow: 2px 2px 8px 2px rgba(163, 163, 163, 0.938);
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -88,11 +106,11 @@ if (isset($_GET['id'])) {
                         </div>
 
                         <div class="input-box">
-                            <p class="text-field" name="price">Price: <?php echo $info['product_price']; ?></p>
+                            <p class="text-field" name="price">Total Price: <?php echo $info['product_price']; ?></p>
                         </div>
 
                         <div class="input-box">
-                            <p class="text-field" name="quantity">Brand name: <?php echo $info['quantity']; ?></p>
+                            <p class="text-field" name="quantity">Quantity: <?php echo $info['quantity']; ?></p>
                         </div>
 
                         <div class="input-box ">
@@ -106,6 +124,8 @@ if (isset($_GET['id'])) {
                         <div class="input-box ">
                             <p class="text-field" name="user_mail">UserName: <?php echo $info['users_email']; ?></p>
                         </div>
+
+                        <button class="btnOrder" type="submit" name="button">Order Done</button>
 
                     </li>
 
@@ -126,6 +146,13 @@ if (isset($_GET['id'])) {
 </html>
 <?php
 } else {
-    header("Location: login.php");
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("Only admin can access this page");
 }
 ?>

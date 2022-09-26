@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+            rel="stylesheet">
     <title>Bootstrap Example</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <title>Online Shopping</title>
 
     <style>
         body {
-            background-color: #ffddd6;
+            /* background-color: #ffebe1; */
+            background-color: #fff3dc;
         }
     </style>
 </head>
@@ -28,43 +31,66 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
-                                    <a class="dropdown-item" href="admin_order.php" style="margin: 11px;">Customer-Order</a>
-                                <?php else : ?>
-                                    <a class="dropdown-item" href="cart.php" style="margin: 10px">Cart</a>
-                                <?php endif; ?>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 
                             <li>
                                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
                                     <a class="dropdown-item" href="post_item.php">Add Post</a>
                                 <?php else : ?>
-                                    <a class="dropdown-item" href="customer_order.php">Orders</a>
+                                    <a class="dropdown-item" href="customer_order.php" >Order</a>
                                 <?php endif; ?>
+
                             </li>
+
+                            <li class="nav-item">
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                            <a class="dropdown-item" href="admin_order.php" >Orders</a>
+                        <?php else : ?>
+                            <a class="dropdown-item" href="customer_order.php">History</a>
+                            
+                        <?php endif; ?>
+                    </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                         </ul>
                     </li>
 
+                    <li><a class="nav-link active" href="logout.php" style="color: red;">Log Out</a></li>
+
                 </ul>
-               
-                <h5 style="color: orangered; font-size:20px"><?php echo $_SESSION['email']; ?></h5>
+
+
+                    <?php if (
+                        isset($_SESSION['email'])
+                    ) {?>
+                    <span class="material-icons icons-size-bg" style="color: black; font-size:35px; margin-right: 20px; padding-top: 5pxpx; cursor: pointer;" onclick="location.href='cart.php'">shopping_cart</span>
+                    
+                    <h5 style="color: orangered; font-size:20px ;">
+                    <?php
+                        echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                    } else {
+                    ?>
+                        <a href="login.php">
+                            <?php echo "<button type='button' class='btn btn-sm' style='background-color: #a4d6ff; margin:10px'>Login</button>";?>
+                        <a href="signup.html">
+                            <?php echo "<button type='button' class='btn btn-sm' style='background-color: #a4d6ff; margin:10px'>Signup</button>";
+                        }
+                            ?>
+                </h5>
+
                 <a href="admin.php">
-                            <?php if (
-                                isset($_SESSION['role']) && $_SESSION['role'] === 'admin'
-                            ) {
-                                echo "<button type='button' class='btn btn-warning btn-sm' style='margin:8px'>Admin Panel</button>";
-                            }
-                            ?></a>
+                    <?php if (
+                        isset($_SESSION['role']) && $_SESSION['role'] === 'admin'
+                    ) {
+                        echo "<button type='button' class='btn btn-warning btn-sm' style='margin:8px'>Admin Panel</button>";
+                    }
+                    ?></a>
 
 
 

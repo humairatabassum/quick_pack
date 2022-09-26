@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+if (isset($_SESSION['email'])) {
 include "data_base.php";
 
 
@@ -113,3 +114,15 @@ if (isset($_GET['id'])) {
 </body>
 
 </html>
+<?php
+} else {
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("Please Login First");
+}
+?>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['email']) && $_SESSION['role'] === 'admin') {
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ if (isset($_SESSION['email'])) {
     <title>Document</title>
 
     <style>
-      
+
         .container-form {
             height: 100%;
             width: 100%;
@@ -119,6 +119,13 @@ if (isset($_SESSION['email'])) {
 </html>
 <?php
 } else {
-    header("Location: login.php");
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("Only admin can access this page");
 }
 ?>

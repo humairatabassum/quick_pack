@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,16 +17,35 @@ session_start();
 }
 
 .container{
-    width: 100%;
-    height: 80%;
+    float: left;
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+   
+}
+.container1{
+    background-color: #ff822b;
+    float: right;
+    width: 49%;
+    height: 80%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
     margin: 10px;
+    
+}
+
+.label1{
+    margin-right:20px;
+    margin-left: 20px;
 }
 
 .img{
-    margin-right:20px;
+  
     border: 3px solid #0d1017;
     width: 500px;
     height: 500px;
@@ -33,10 +53,15 @@ session_start();
     margin: 10px;
     padding: 10px;
 }
+
+img:hover{
+    transform: scale(1.1);
+    transition: 0.7s;
+}
+
 .description{
     float: right;
     color: black;
-    margin: 20px 10px;
     font-size: 16px;
     font-weight: 400;
     width: 300px;
@@ -49,7 +74,7 @@ session_start();
 .form{
     
     margin: 10px;
-    float: left;
+    float: right;
     margin-top:30em;
     margin-left:-400px
 
@@ -108,6 +133,10 @@ session_start();
     <div class="container">
         <label class="label1">
         <img src="image/<?php echo $info['img']; ?>" alt=".....image...." class="img">
+        </label>
+
+        <label class="label1">
+
         <p class="description"><?php echo $info['description']; ?></p>
 
 
@@ -115,12 +144,14 @@ session_start();
             <p class="text-field">Title: <?php echo $info['title']; ?></p>
             <p class="text-field" >Brand Name: <?php echo $info['brand']; ?></p>
             <p class="text-field" style="color: red;">Price: <?php echo $info['price']; ?></p>
-        </div>
-        </label>
-        <div class="form">
+        <!-- </div>
+        </label> -->
+       
+        <!-- <div class="form"> -->
                 <button class="btnOrder" type="button" name="details" onclick="window.location.href='order.php?id=<?php echo $id ?>'">Buy Now</button> 
                 <button class="btnCart" type="submit" name="submit" onclick="window.location.href='cart_save.php?id=<?php echo $id ?>'">Add to Cart</button>
-        </div>
+       </label>
+            </div>
 
 
     <?php
@@ -129,3 +160,15 @@ session_start();
     ?>
 </body>
 </html>
+<?php
+} else {
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("Please Login First");
+}
+?>

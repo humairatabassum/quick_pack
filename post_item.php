@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['email']) && $_SESSION['role'] === 'admin') {
 
 ?>
 
@@ -25,7 +25,7 @@ if (isset($_SESSION['email'])) {
 body {
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #ffdcca;
+    background-color: #f7d8c4;
 }
 
 .header{
@@ -59,25 +59,25 @@ body {
 .input-box{
     margin-bottom: 5px;
     margin-right: 20px;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
     outline: none;
 }
 .form-control{
-    height: 50px;
+    height: 30px;
     width: 100%;
     margin-right:20px ;
     margin-bottom: 5px;
-    padding: 10px;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 18px;
     outline: none;
 }
 
 .btn{
     color: #fff; 
-    font-size: 18px; 
+    font-size: 16px; 
     outline: none; 
-    width: 120px; 
+    width: 100px; 
     border: none; 
     padding: 8px 16px; 
     border-radius: 6px; 
@@ -117,8 +117,9 @@ body {
                         <textarea class="form-control" name="description" rows="10"  placeholder="Enter a short description of the product" required></textarea>
                     </div>
                     <div class="input-box">
-                        <label><b>Product Price:</b></label>
-                        <input class="form-control" type="number" id="price" name="price" required>
+                        <label><b>Product Price:</b> </label>
+                        <input class="form-control" style="outline:none;" type="number" id="price" name="price" required>
+                    
                     </div>
 
                     <br>
@@ -126,6 +127,7 @@ body {
                     <input id="fileImg" class="fileimg" type="file" placeholder="Choose a file" name="img"
                         require>
                     <input class="btn" type="submit" name="submit" value="Post">
+                    <input class=" btn" type="submit" name="submit" value="cancel"  onclick="location.href='home.php'">
                 </form>
             </div>
     </div>
@@ -134,6 +136,13 @@ body {
 </html>
 <?php
 } else {
-    header("Location: login.php");
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("Only admin can access this page");
 }
 ?>

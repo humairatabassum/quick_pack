@@ -2,6 +2,8 @@
 
 include "data_base.php";
 session_start();
+if (isset($_SESSION['email'])) {
+
 
 if (isset($_POST['submit'])) {
 
@@ -146,3 +148,15 @@ if (isset($_POST['submit'])) {
     </body>
 
 </html>
+<?php
+} else {
+
+    function function_alert($message)
+    {
+
+        echo "<script>alert('$message');</script>";
+        echo "<script>window.location.href='home.php';</script>";
+    }
+    function_alert("You must login first");
+}
+?>

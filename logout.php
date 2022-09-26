@@ -3,5 +3,5 @@
 session_start();
 unset($_SESSION['email']);
 session_destroy();
-header("Location:login.php");
+header("Location:home.php");
 ?>

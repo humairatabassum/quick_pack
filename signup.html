@@ -14,239 +14,201 @@
         }
 
         body {
-            background-color: #fdeeef;
-            justify-content: center;
-            align-content: center;
-
-
-        }
-
-        .register-heading {
-            margin-top: 20px;
-            margin-right: 20px;
-            padding: 10px;
-            font-style: bold;
-            font-size: large;
-            text-align: center;
+            background-image: url(image/back_imgs.jpg);
+            background-color: antiquewhite;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
 
         }
 
-        .register-left {
-            margin-right: 50px;
+        .header {
+            text-align: left;
+            font-size: 30px;
+            color: black;
             padding: 20px;
-            text-align: center;
+            margin: 30px 70px;
 
         }
 
-        .register-right {
-            width: 50vh;
+        .container {
             height: auto;
-            align-items: center;
-            justify-content: center;
-            border: 10px solid #ff8c16;
-            box-shadow: 2px 2px 10px 5px gray;
-            position: absolute;
+            padding: 10px;
+            margin-top: 30px;
+            margin-left: 5%;
+            margin-right: 10%;
             display: flex;
-            border-radius: 1.2rem;
-            margin-right: 550px;
-            margin-left: 650px;
+            align-items: left;
+            justify-content: left;
+
         }
 
-        .register-form {
-            padding: 10px;
-            margin: 10px;
+
+        form {
+
+            backdrop-filter: blur(18px);
+            width: auto;
+            border: 2px solid #cec4ac;
+            box-shadow: 2px 2px 8px 2px gray;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 12px;
+            padding-bottom: 10px;
+            border-radius: 15px;
+
         }
 
         .form-group {
+            margin: 10px 5px;
+            padding: 5px;
+            font-size: 18px;
+            outline: none;
 
-            margin: 5px;
-            padding-left: 20px;
-            padding-right: 20px;
-            font-style: bold;
-            font-weight: 500;
+        }
 
+        .row-left {
+            float: left;
+        }
+
+        .row-right {
+            float: right;
+        }
+
+        label {
+
+            padding: 8px;
+            font-weight: 700;
+            font-size: 20px;
         }
 
         .form-control {
-            border-color: #fff;
-            margin-left: 20px;
-            margin-top: 5px;
+            float: right;
             padding: 5px;
-            border-radius: 0.8rem;
-            ;
-
         }
 
         .btnRegister {
-            float: right;
+            margin-left: 40%;
+            margin-right: 45%;
             margin-top: 10px;
             margin-bottom: 5px;
             border: none;
-            border-radius: 1.1rem;
-            padding: 5px;
+            padding: 5px 15px;
+            width: 20%;
+            border-radius: 0.8rem;
             background: #ffa430;
             color: #fff;
             font-weight: 600;
-            width: 35%;
             cursor: pointer;
         }
 
-    
+
 
         .btnLogin {
-            float: left;
-            margin-top: 10px ;
-            margin-bottom: 10px;
-            margin-left: 6em ;
-
-            border: none;
-            padding: 5px;
-            background: #ffa430;
-            color: #fff;
+            margin-left: 45%;
+            margin-right: 45%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #eb451f;
+            padding: 10px 15px;
+            width: 20%;
             font-weight: 600;
-            width: 35%;
-            cursor: pointer;
+            text-align: center;
         }
 
+        /*
+            margin-bottom: 5px;
+            margin-right: 8px;
+            margin-left: 5px;
+            color: red;
+            font-size: 12px;
+             cursor: pointer;
+        } */
     </style>
 </head>
 
 <body>
-    
-    <div class="container register">
+
+    <div class="header">
+        <p style="font-weight: 900; font-size: 30px; text-shadow: 0 0 2px #000;">A website which give you a best quality of products </p>
+    </div>
+
+    <div class="container">
 
         <div class="row">
-            <div class="col-md-3 register-heading">
-                <p style="font-weight: 900; font-size: large;">A website which give you a best quality of products </p>
+            <form action="register.php" method="POST">
 
-            </div>
-            <div class="col-md-3 register-left">
-                <h2>Registration</h2>
-            </div>
+                <div class="register" style="text-align: center ; padding:20px">
+                    <h2 style="margin: 8px;">Registration</h2>
+                </div>
 
-            <div class="col-md-6 register-right">
+                <div class="row-left">
 
-                <form method="POST" action="register.php">
-
-                    <div class="row register-form">
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <label>First Name</label>
-                                        </div>
-                                        <div class="col-1">
-                                            <input type="text" class="form-control" id="inputFirstName" name="firstName"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <label>Last Name</label>
-                                        </div>
-                                        <div class="col-1">
-                                            <input type="text" class="form-control" id="inputLastName" name="lastName"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label>Phone Number</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" minlength="10" maxlength="15" id="inputPhoneNumber"
-                                                name="phoneNumber" class="form-control" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label>Address</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="inputAddress" name="address"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label>Email</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="email" class="form-control" id="inputEmail" name="email"
-                                                required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label>Password</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" class="form-control" id="inputPassword"
-                                                name="password1" onkeyup="pwdsame();" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="container text-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label>Confirm Password</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" class="form-control" name="password2"
-                                                onkeyup="pwdsame();" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div>
-                            <input type="submit" class="btnRegister" value="Register" name="register" />
-                        </div>
+                    <div class="form-group">
+                        <label class="label" for="FirstName">First Name</label>
+                        <input type="text" class="form-control" name="firstName" placeholder="Enter first name"
+                            required>
                     </div>
 
-                    <div class=" btnLogin-form">
-                        <p style="padding-left:5px; margin-top:40px; text-align: center;">Already have an account?</p>
+                    <div class="form-group">
+                        <label class="label" for="phoneNumber">Phone Number</label>
+                        <input type="text" class="form-control" name="phoneNumber" placeholder="Enter phone Number"
+                            required>
                     </div>
-                    <div>
-                        <input type="button" name="login" class="btnLogin" value="Login"
-                            onclick="location.href='login.php'" />
-                    </div>
-                </form>
-            </div>
 
+                    <div class="form-group">
+                        <label class="label" for="pw1">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password1"
+                            onkeyup="pwdsame();" required />
+                    </div>
+                </div>
+
+                <div class="row-right">
+                    <div class="form-group">
+
+                        <label class="label" for="FirstName">Last Name</label>
+                        <input type="text" class="form-control" name="firstName" placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label" for="email">Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="Enter email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address"
+                            name="address" required />
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="pw2">Confirm Password</label>
+                    <input type="password" class="form-control1" style="padding: 5px; margin:5px"
+                        placeholder="Confirm your Password" name="password2" onkeyup="pwdsame();" required />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btnRegister" value="Register" name="register" />
+                </div>
+
+                <div class="form-group1">
+
+                    <p style="padding-left:5px; font-weight: 500; margin:10px; text-align: center;">Already have an
+                        account?</p>
+                    <!-- <input type="button" name="login" class="btnLogin" value="Login"
+                            onclick="location.href='login.php'" /> -->
+                    <a style="font-size: 18px; float: inline-end; " class="btnLogin" href="login.php">Login</a>
+
+                </div>
+
+            </form>
         </div>
+
     </div>
+
 
 </body>
 
